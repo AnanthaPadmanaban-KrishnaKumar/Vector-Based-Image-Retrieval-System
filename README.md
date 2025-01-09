@@ -122,7 +122,7 @@ The project implements two advanced FAISS-based indexing techniques: **Product Q
 
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/AnanthaPadmanaban-KrishnaKumar/Vector-Based-Image-Retrieval-System.git](https://github.com/AnanthaPadmanaban-KrishnaKumar/Vector-Based-Image-Retrieval-System.git)
+   git clone https://github.com/AnanthaPadmanaban-KrishnaKumar/Vector-Based-Image-Retrieval-System.git
    cd Vector-Based-Image-Retrieval-System
    ```
 
