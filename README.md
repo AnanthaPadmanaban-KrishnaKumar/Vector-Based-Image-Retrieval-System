@@ -168,4 +168,4 @@ This project is licensed under the MIT License. See `MIT` for details.
 
 ## Contact
 
-For questions or collaboration, reach out to Anantha Padmanaban at [anantha11k@gmail.com].
+For questions or collaboration, reach out to Anantha Padmanaban at anantha11k@gmail.com.
