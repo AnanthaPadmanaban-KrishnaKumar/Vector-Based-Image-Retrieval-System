@@ -122,8 +122,8 @@ The project implements two advanced FAISS-based indexing techniques: **Product Q
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/username/project_name.git
-   cd project_name
+   git clone [https://github.com/username/project_name.git](https://github.com/AnanthaPadmanaban-KrishnaKumar/Vector-Based-Image-Retrieval-System.git)
+   cd Vector-Based-Image-Retrieval-System
    ```
 
 2. Install dependencies:
@@ -162,10 +162,10 @@ The project implements two advanced FAISS-based indexing techniques: **Product Q
 
 ## License
 
-This project is licensed under the MIT License. See `LICENSE` for details.
+This project is licensed under the MIT License. See `MIT` for details.
 
 ---
 
 ## Contact
 
-For questions or collaboration, reach out to [Your Name] at [your_email@example.com].
+For questions or collaboration, reach out to Anantha Padmanaban at [anantha11k@gmail.com].
