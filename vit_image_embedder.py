@@ -68,7 +68,6 @@ class ImageEmbedder:
         return embeddings
 
 if __name__ == "__main__":
-    # Example usage
     train_directory = "dataset/test/"
     output_file = "output/test_image_embeddings.pt"
 
