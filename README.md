@@ -1,38 +1,171 @@
-## Introduction
+# Vision Transformer-based Advanced Image Retrieval System
 
-In this project, I leveraged the power of Vision Transformers (ViT) to build an advanced image search system that encodes images into a latent space representation. Our aim is to create a robust and versatile image retrieval system that can handle diverse queries effectively. This system utilizes encoded vectors stored in MongoDB collections and allows for efficient organization and retrieval through multiple vector search indices—cosine similarity, dot product, and Euclidean distance.
+## Overview
 
-## Core Components
+This project leverages the power of Vision Transformers (ViT) to build an advanced, scalable, and versatile image search system. The system encodes images into a latent space representation, stores these representations in MongoDB, and provides efficient image retrieval using multiple vector search indices. The project also incorporates cutting-edge indexing techniques, such as Product Quantization (PQ) and Hierarchical Navigable Small World (HNSW) graph, to optimize retrieval speed and memory efficiency.
 
-- **Vision Transformer (ViT) Model**: At the heart of our project, we utilize the Vision Transformer (ViT) model, which excels in transforming images into vector representations. These vectors are then efficiently stored in MongoDB, allowing for quick retrieval and comparison.
-- **Vector Search Indices**: To optimize the search process, we have developed three different indices for vector comparison: cosine similarity, dot product, and Euclidean distance. Each index offers unique advantages in measuring image similarity, ensuring flexibility and precision in search operations.
-- **Streamlit Web Application**: To enhance user interaction and make our system accessible to a broader audience, we designed a Streamlit-based web application. This interface is user-friendly and enables users to upload new images and receive related images based on their choice of similarity metric, instantly.
+---
 
-## Dataset:
-The dataset for this project comprises a collection of 4,000 images, organized into four distinct folders based on animal type. Each folder contains 1,000 JPEG images of a specific animal, ensuring a balanced representation for each category. The animals featured in the dataset are buffalo, elephant, rhino, and zebra. These images have been meticulously curated and scraped from various online sources, including Google, Pexels, Pixabay, and Unsplash, providing a diverse range of visuals for each animal category.
-For this project, 3,000 images from the dataset were converted into latent space representations and stored in MongoDB for training. The remaining 1,000 images were used for testing the system's ability to accurately perform image retrieval during inference.
-Dataset Source: https://www.kaggle.com/datasets/ayushv322/animal-classification
+## Features
 
-## Vision Transformer (ViT):
-The Vision Transformer (ViT) is a transformative approach to computer vision that adapts the transformer architecture, initially designed for natural language processing, to visual tasks. Unlike traditional CNNs, which rely on convolutional layers, ViTs treat images as sequences by dividing them into fixed-size patches, flattening these patches, and embedding them with positional information to preserve their original context in the image. The backbone of ViT is its self-attention mechanism, which dynamically weighs the significance of each patch, allowing the model to focus on the most relevant parts of the image. This capability enables ViTs to excel in capturing complex visual relationships and contexts, making them highly effective for tasks requiring detailed global understanding of an image.
+1. **Vision Transformer (ViT) Embedding:**
+   - Utilizes the ViT model to encode images into compact 768-dimensional vectors.
+   - Embeddings are stored efficiently for scalable retrieval.
 
-## Reason for Choosing Vision Transformer (ViT):
-- **Attention Mechanism**: Vision Transformers utilize a self-attention mechanism, enabling the model to dynamically focus on relevant parts of an image. This approach contrasts with CNNs, enhancing efficiency and ability to capture complex relationships within the image.
-- **Superior Benchmark Performance**: ViTs have demonstrated superior performance over traditional CNNs like ResNet when trained on large-scale datasets. This advantage is crucial for the robustness and precision of our image retrieval system, leading to more accurate and meaningful search results.
-- **Compact Representation with CLS Token**: ViTs feature a 'CLS' token that encodes the entire image into a compact 768-dimensional vector, significantly simplifying storage and processing. This streamlined representation eliminates the need for dimensionality reduction, reducing computational overhead.
+2. **Multiple Search Indices:**
+   - **Cosine Similarity**
+   - **Dot Product**
+   - **Euclidean Distance**
+   - **Product Quantization (PQ)** for memory-efficient retrieval.
+   - **HNSW Graph** for high-speed, approximate nearest neighbor searches.
 
-## MongoDB Vector Search:
-MongoDB has enhanced its capabilities with a vector search feature, specifically designed to manage and search through vector data efficiently. This functionality is crucial for scalable similarity searches within large datasets of high-dimensional vectors, commonly used in image processing, natural language processing, and other feature extraction domains. Vector search in MongoDB utilizes specialized indexes that optimize vector data storage and retrieval, supporting distance measures like cosine similarity, Euclidean distance, and dot product. These measures enable efficient nearest neighbor searches, essential for recommendation systems, image retrieval systems, and more. MongoDB stores vectors as BSON arrays and employs a vector index to facilitate rapid retrieval of the most similar vectors based on the chosen similarity metric, leveraging MongoDB’s robust infrastructure for real-time querying. This capability greatly simplifies the development of applications requiring similarity searches, making MongoDB a vital tool for developers in AI-driven environments.
+3. **Streamlit Web Application:**
+   - User-friendly interface for uploading images and retrieving visually similar images.
+   - Option to choose a similarity metric dynamically.
 
-## Applications of the Vector-based Image Retrieval System:
-- **E-commerce Platforms like Amazon**: Enhances product discovery and recommendation by using similarity search to offer personalized recommendations and cross-selling opportunities.
-- **Media Production and Content Management**: Automates the retrieval of similar scenes or images, ensuring consistent aesthetics and narrative styles across series or episodes, which optimizes post-production processes.
-- **Art and Historical Research**: Transforms the way visual archives are utilized by enabling similarity-based retrieval of artworks and historical images, aiding in the study of art evolution, authentication, and cross-cultural influences.
+4. **Dataset:**
+   - 4,000 images categorized into four classes: buffalo, elephant, rhino, and zebra.
+   - Images sourced from Google, Pexels, Pixabay, and Unsplash.
 
-## Future Work:
-- **Integration of FAISS (Facebook AI Similarity Search)**: To enhance efficiency and scalability, especially for extensive image databases.
-- **Performance Analysis**: Conducting a comprehensive comparison between our vector-based retrieval system and traditional methods, highlighting efficiency gains and time savings.
+5. **Comparison of PQ and HNSW Indexing:**
+   - Detailed evaluation of index performance in terms of precision, recall, query latency, and memory usage.
 
-## Conclusion:
-Our implementation of a Vision Transformer with MongoDB for image retrieval exemplifies a state-of-the-art approach in managing and retrieving complex image data. With sophisticated algorithms like cosine similarity, dot product, and Euclidean distance, our system provides precise and efficient matching capabilities. The versatile applications across e-commerce, media production, and art historical research illustrate its transformative potential in various domains, enhancing both user engagement and academic research capabilities.
+---
 
+## Dataset
+
+- **Source:** [Kaggle Dataset](https://www.kaggle.com/datasets/ayushv322/animal-classification)
+- **Structure:**
+  - 4,000 images, divided equally into four folders representing four animal classes.
+  - 3,000 images used for training; 1,000 reserved for testing.
+
+---
+
+## Vision Transformer (ViT)
+
+### How ViT Works:
+- Images are split into fixed-size patches.
+- Patches are embedded and fed into a transformer model with a self-attention mechanism.
+- A `CLS` token is used to encode the entire image into a compact vector.
+
+### Why ViT?
+- **Attention Mechanism:** Dynamically focuses on relevant image regions.
+- **Performance:** Outperforms traditional CNNs on large-scale datasets.
+- **Compact Representation:** Produces efficient 768-dimensional vectors.
+
+---
+
+## MongoDB Vector Search
+
+MongoDB provides efficient vector search capabilities, allowing the storage of high-dimensional vectors and retrieval using similarity measures like cosine similarity, Euclidean distance, and dot product. The BSON-based storage ensures scalability and seamless querying.
+
+---
+
+## Indexing Techniques and Comparison
+
+The project implements two advanced FAISS-based indexing techniques: **Product Quantization (PQ)** and **HNSW Graph**.
+
+### Product Quantization (PQ):
+- Reduces memory usage by quantizing high-dimensional vectors into subspaces.
+- Suitable for scenarios with constrained memory resources.
+
+### HNSW Graph:
+- Creates a navigable graph structure for approximate nearest neighbor searches.
+- Optimized for high-speed retrieval, especially in large datasets.
+
+### Evaluation Results:
+
+| Method                                | Precision@5 | Recall@5 | Avg Query Latency | Index Size |
+|---------------------------------------|-------------|----------|-------------------|------------|
+| Product Quantization (PQ)            | 0.4685      | 0.4685   | 0.0000 s          | 0.99 MB    |
+| Hierarchical Navigable Small World (HNSW) | 0.9899      | 0.9899   | 0.0000 s          | 12.47 MB   |
+
+#### Key Observations:
+- **PQ Index:**
+  - Significantly lower memory usage (0.99 MB).
+  - Moderate precision and recall.
+  - Suitable for memory-constrained systems.
+
+- **HNSW Index:**
+  - Superior precision and recall (close to 100%).
+  - Higher memory usage (12.47 MB).
+  - Ideal for scenarios demanding high accuracy and fast retrieval.
+
+---
+
+## System Architecture
+
+1. **Data Preparation:**
+   - Images are processed and embedded into vectors using the ViT model.
+
+2. **Index Creation:**
+   - PQ and HNSW indices are built using FAISS.
+
+3. **Database Storage:**
+   - Vectors are stored in MongoDB for efficient management and querying.
+
+4. **Web Application:**
+   - Streamlit-based interface for seamless interaction.
+
+---
+
+## Streamlit Web Application
+
+- **Features:**
+  - Upload an image.
+  - Choose a similarity metric.
+  - Retrieve top-k similar images instantly.
+
+---
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/username/project_name.git
+   cd project_name
+   ```
+
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Run the web application:
+   ```bash
+   streamlit run app.py
+   ```
+
+---
+
+## Future Work
+
+1. **Integration of FAISS:**
+   - Further optimization of PQ and HNSW indices.
+   - Extending the system to handle larger datasets.
+
+2. **Performance Metrics:**
+   - Comprehensive analysis of precision/recall and latency across diverse datasets.
+
+3. **Advanced Search Options:**
+   - Incorporate multimodal search capabilities combining text and image queries.
+
+---
+
+## Credits
+
+- **Model:** Vision Transformer (ViT) by Google.
+- **Libraries:** FAISS, PyTorch, Transformers, MongoDB, Streamlit.
+- **Dataset:** Kaggle.
+
+---
+
+## License
+
+This project is licensed under the MIT License. See `LICENSE` for details.
+
+---
+
+## Contact
+
+For questions or collaboration, reach out to [Your Name] at [your_email@example.com].
