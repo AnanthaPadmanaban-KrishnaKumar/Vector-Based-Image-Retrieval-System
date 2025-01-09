@@ -14,8 +14,8 @@ feature_extractor = ViTFeatureExtractor.from_pretrained('google/vit-base-patch16
 model = ViTModel.from_pretrained('google/vit-base-patch16-224')
 
 # Securely format the MongoDB connection string with username and password.
-username = "Ananth"
-password = "iamPAWAN@11" 
+username = ""
+password = "" 
 
 uri = "mongodb+srv://{username}:{password}@visiontransformer-based.7aqyzdx.mongodb.net/?retryWrites=true&w=majority&appName=VisionTransformer-BasedImageRetrievalSystem".format(
     username=quote_plus(username),
